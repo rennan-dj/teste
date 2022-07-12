@@ -1,0 +1,24 @@
+#NOME DA PIPELINE
+name: First Github-Actions
+
+# ESPECIFICAÇÃO DO TIPO DE GATILHO
+# TODA VEZ QUE UM CÓDIGO FOR EMPURRADO NA BRANCH DESEJADA
+on:
+    push:
+      branche: ["*"]
+
+# AGRUPAR OS TRABALHOS EXECUTADOS NOS FLUXOS
+# INICIANDO A CONSTRUÇÃO DO AMBIENTE
+# INICIANDO O AMBIENTE COM A IMAGEM DO UBUNTU MAIS ATUALIZADA
+# INICIANDO TODOS OS PASSOS QUE SERÃO EXECUTADOS EM UMA PIPELINE
+
+jobs: 
+      build:
+          runs-on: ubuntu-latest
+          steps:
+            - name: 'build'
+              run: npm run build
+            - name: 'test'
+              run: npm run test
+            - name: 'deploy'
+              run: npm run deploy
